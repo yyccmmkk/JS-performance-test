@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>includes & forEach & for & for...of</title>
+</head>
+<body>
+<button onclick="handleClick()">test</button>
+<script>
+    let temp = [];
+    let filter = [];
+    let i = 20000;
+    for (; i--;) {
+        temp.push(Math.random())
+        filter.push(Math.random())
+    }
+
+    function handleClick() {
+        let x = [];
+        let map = {};
+        for (let len = filter.length; len--;) {
+            map[filter[len]] = true
+        }
+        temp.forEach((v) => {
+            filter[v] ? x.push(v) : 1;
+        })
+        for (let len = temp.length; len--;) {
+            filter[temp[len]] ? x.push(temp[len]) : 1;
+        }
+
+        temp.forEach((v) => {
+            filter.includes(v) ? x.push(v) : 1;
+        })
+        for (let v of temp) {
+            filter.includes(v) ? x.push(v) : 1;
+        }
+        for (let v of temp) {
+            filter[v] ? x.push(v) : 1;
+        }
+
+        for (let len = temp.length; len--;) {
+            filter.includes(temp[len]) ? x.push(x) : 1;
+        }
+    }
+</script>
+</body>
+</html>
