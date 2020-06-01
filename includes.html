@@ -17,29 +17,32 @@
 
     function handleClick() {
         let x = [];
-        let map ={};
-        for(let len = filter.length;len--;){
-            map[filter[len]]=true
+        let map = {};
+        for (let len = filter.length; len--;) {
+            map[filter[len]] = true
         }
         temp.forEach((v) => {
-            filter[v]?  x.push(v) :1;
+            filter[v] ? x.push(v) : 1;
         })
-        for(let len = temp.length;len--;){
-            filter[temp[len]]?  x.push(temp[len]) :1;
+        for (let len = temp.length; len--;) {
+            filter[temp[len]] ? x.push(temp[len]) : 1;
         }
 
         temp.forEach((v) => {
-            filter.includes(v) ?  x.push(v) :1;
+            filter.includes(v) ? x.push(v) : 1;
         })
-        for(let v of temp){
-            filter.includes(v) ?  x.push(v) :1;
+        temp.forEach((v) => {
+            3 > 4 ? x.push(2) : 3
+        })
+        for (let v of temp) {
+            filter.includes(v) ? x.push(v) : 1;
         }
-        for(let v of temp){
-            filter[v]?  x.push(v) :1;
+        for (let v of temp) {
+            filter[v] ? x.push(v) : 1;
         }
 
-        for(let len = temp.length;len--;){
-            filter.includes(temp[len]) ?  x.push(x) :1;
+        for (let len = temp.length; len--;) {
+            filter.includes(temp[len]) ? x.push(x) : 1;
         }
     }
 </script>
