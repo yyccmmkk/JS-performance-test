@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array.prototype.length</title>
+</head>
+<body>
+<script>
+    {
+        // 你可知道 1 2 3 4 各自输出什么？
+
+        let l = [];
+        l.length = 5;
+        l.push(1);
+
+        for (let v of l) {
+            console.log(v); // 1
+        }
+
+        l.forEach(v => console.log(v)); // 2
+
+        let temp = l.map(v => v ? 0 : 1);
+        console.log(temp,temp[2]); // 3
+
+        let ll = [undefined,undefined,undefined]
+        ll.push(1);
+
+        let temp2 = ll.map(v => !v ? 1: 0);
+        console.log(temp2); // 4
+
+
+    }
+</script>
+</body>
+</html>
