@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iterator Test</title>
+</head>
+<body>
+<button onclick="handleClick()">test</button>
+<button onclick="handleClick2()">test2</button>
+<button onclick="handleClick3()">test3</button>
+<button onclick="handleClick4()">test4</button>
+<button onclick="handleClick5()">test5</button>
+<script>
+    let list = [];
+    //list.length = 10000;
+    for (let i = 0; i < 10000; i++) {
+        list.push(i);
+    }
+
+    function handleClick() {
+        let max = 10000;
+        let opt = {};
+        for (let i = 0; i < max; i++) {
+            opt = {...opt, ['key' + i]: i};
+        }
+
+        console.log('done', opt)
+
+    }
+
+    function handleClick2() {
+        let max = 10000;
+        let opt = {};
+        for (let i = 0; i < max; i++) {
+            Object.assign(opt, {['key' + i]: i});
+        }
+
+        console.log('done', opt)
+
+    }
+
+    function handleClick3() {
+        let opt = {};
+        list.forEach((v, i) => {
+            Object.assign(opt, {['key' + i]: i});
+        })
+        console.log('done', opt)
+    }
+
+    function handleClick4() {
+        let opt = {};
+
+        opt = list.reduce((acc, cur, index) => ({...acc, ['key' + index]: index}), {})
+        console.log('done', opt)
+    }
+
+    function handleClick5() {
+        let opt = {};
+
+        opt = list.reduce((acc, cur, index) => Object.assign(acc, {['key' + index]: index}), {})
+        console.log('done', opt)
+    }
+
+
+</script>
+
+
+</body>
+</html>
